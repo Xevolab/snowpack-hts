@@ -1,7 +1,7 @@
 // @Author: francesco
 // @Date:   2021-04-08T22:22:15+02:00
 // @Last modified by:   francesco
-// @Last modified time: 2021-04-10T00:51:21+02:00
+// @Last modified time: 2021-04-10T11:07:32+02:00
 
 @import url("https://use.typekit.net/vwi0ykr.css");
 
@@ -21,9 +21,11 @@ body {
   margin: 0;
 
   .App-main {
-    overflow-y: scroll;
     height: 100vh;
     height: -webkit-fill-available;
+
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     display: flex;
     flex-direction: column;
@@ -105,18 +107,6 @@ body {
 
             }
 
-            .img-container {
-              width: 100%;
-
-              img {
-                max-width: 100%;
-              }
-
-              .img-caption {
-                margin: 0 2em;
-                color: #666;
-              }
-            }
             .content-popup {
 
               .action-container {
@@ -126,18 +116,41 @@ body {
               .action-container::after {
                 content: '';
                 position: absolute;
-                bottom: 21px;
-                right: 21px;
+                bottom: 0;
+                right: 1rem;
                 width: 42px;
                 height: 42px;
 
                 background-image: url("./../res/plus.svg");
+              }
+              .action-container.button-arrow::after {
+                background-image: url("./../res/arrow_circle.svg");
+              }
+            }
+
+            .img-container {
+              width: 100%;
+
+              img {
+                max-width: 100%;
+              }
+
+              .action-container::after {
+                bottom: 1rem;
+              }
+
+              .img-caption {
+                margin: 0 2em;
+                color: #666;
               }
             }
 
             .card {
               padding-top: 1em;
               padding-bottom: 1em;
+
+              display: flex;
+              flex-direction: column;
 
               &:not(.content-popup) > *, &.content-popup .action-container > * {
                 padding-right: 1rem;
@@ -146,6 +159,19 @@ body {
               &.content-popup .action-container > * {
                 padding-right: calc(1rem + 42px + 21px);
               }
+
+              .btn {
+                align-self: center;
+                padding-right: 1.2em;
+                padding-left: 1.2em;
+              }
+
+              h2 {
+                margin-bottom: initial;
+              }
+            }
+            .card:last-child {
+              margin-bottom: -2em;
             }
           }
         }
@@ -185,6 +211,19 @@ body {
             background-image: url("./../res/plus.svg");
             transform: rotate(45deg);
           }
+        }
+      }
+
+      .btn {
+        padding: .25em 1.5em;
+        border-radius: 2em;
+
+        text-decoration: none;
+        font-family: halyard-display, sans-serif;
+
+        &.btn-white {
+          background-color: white;
+          color: black;
         }
       }
     }

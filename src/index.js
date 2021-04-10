@@ -2,10 +2,15 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-10T00:45:42+02:00
+ * @Last edit at: 2021-04-10T11:08:23+02:00
  */
 
 console.log("Hello from Xevolab");
+
+import smoothscroll from 'smoothscroll-polyfill';
+
+// kick off the polyfill!
+smoothscroll.polyfill();
 
 /*
   Dealing with landing view
@@ -19,6 +24,10 @@ const hideLandingView = () => {
 document.getElementById("landing-view").addEventListener("wheel", e => {
   if (e.deltaY <= 0) return e.preventDefault();
 
+  hideLandingView()
+});
+document.getElementById("landing-view").addEventListener("touchmove", e => {
+  e.preventDefault();
   hideLandingView()
 });
 document.querySelector(".action-button-area").addEventListener("click", hideLandingView);
@@ -54,9 +63,12 @@ const bakeThemCookies = () => {
 
 var glider = new Glide('.glide', {
   type: "carousel",
+
+  touchAngle: 15,
+
   focusAt: "center",
   gap: 0,
-  startAt: 1,
+  startAt: 0,
   ...bakeThemCookies()
 }).mount()
 

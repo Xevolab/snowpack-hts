@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
-    "scrollbooster": "^3.0.2"
+    "scrollbooster": "^3.0.2",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
