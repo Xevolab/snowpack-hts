@@ -2,7 +2,7 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-10T14:05:52+02:00
+ * @Last edit at: 2021-04-10T18:00:35+02:00
  */
 
 console.log("Hello from Xevolab");
@@ -98,11 +98,6 @@ glider.on("update", () => {
 
 })
 bindSyncScroll();
-
-/*let caretPages = document.querySelectorAll(".caret-page")
-for (let i=0; i<caretPages.length; i++) {
-  caretPages[i].style.backgroundColor = 'hsl(0, 0%, '+(50+Math.floor(Math.random() * 50))+'%)';
-}*/
 
 /*
   Popups

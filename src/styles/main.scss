@@ -1,7 +1,7 @@
 // @Author: francesco
 // @Date:   2021-04-08T22:22:15+02:00
 // @Last modified by:   francesco
-// @Last modified time: 2021-04-10T12:08:53+02:00
+// @Last modified time: 2021-04-10T17:57:07+02:00
 
 @import url("https://use.typekit.net/vwi0ykr.css");
 
@@ -42,6 +42,17 @@ body {
       background-color: black;
       color: white;
 
+      h1 {
+        margin: 15px 25px;
+        font: normal normal 800 95px/80px halyard-display;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
       .action-button-area {
         position: absolute;
         bottom: 0;
@@ -79,8 +90,14 @@ body {
           max-height: 100%;
           overflow-y: auto;
 
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+
           &:not(.glide__slide--active) {
-            opacity: 60%;
+            opacity: 20%;
             pointer-events: none;
           }
           transition: opacity 250ms ease-in-out;
@@ -195,7 +212,7 @@ body {
 
         overflow-y: auto;
 
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.85);
 
         .popup-content {
           padding: 3em 1em;
@@ -245,17 +262,6 @@ body {
   .text-caps {
     text-transform: uppercase;
   }
-}
-
-h1 {
-  margin: 15px 25px;
-  font: normal normal 800 95px/80px halyard-display;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .hide-scroll-bars, .caret-page, .popup {
