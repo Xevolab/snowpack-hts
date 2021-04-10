@@ -2,14 +2,12 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-10T11:08:23+02:00
+ * @Last edit at: 2021-04-10T14:05:52+02:00
  */
 
 console.log("Hello from Xevolab");
 
 import smoothscroll from 'smoothscroll-polyfill';
-
-// kick off the polyfill!
 smoothscroll.polyfill();
 
 /*
@@ -22,7 +20,8 @@ const hideLandingView = () => {
   }, 1000)
 }
 document.getElementById("landing-view").addEventListener("wheel", e => {
-  if (e.deltaY <= 0) return e.preventDefault();
+  e.preventDefault();
+  if (e.deltaY <= 0) return
 
   hideLandingView()
 });
@@ -72,11 +71,33 @@ var glider = new Glide('.glide', {
   ...bakeThemCookies()
 }).mount()
 
-glider.on(["mount.before", "resize"], () => {
+glider.on(["mount.after", "resize"], () => {
 
-  return glider.update(bakeThemCookies())
+  glider.update(bakeThemCookies())
 
 })
+
+const bindSyncScroll = () => {
+  document.querySelectorAll(".caret-page").forEach((item, i) => {
+    console.log("updating caret-page");
+
+    item.removeEventListener("scroll", syncScroll);
+    item.addEventListener("scroll", syncScroll);
+  });
+}
+const syncScroll = (e) => {
+  setTimeout(() => {
+    document.querySelectorAll(".caret-page:not(.glide__slide--active)#"+e.target.id).forEach((item, i) => {
+      item.scrollTop = e.target.scrollTop;
+    });
+  }, 0);
+}
+glider.on("update", () => {
+
+  bindSyncScroll()
+
+})
+bindSyncScroll();
 
 /*let caretPages = document.querySelectorAll(".caret-page")
 for (let i=0; i<caretPages.length; i++) {
@@ -90,7 +111,14 @@ for (let i=0; i<caretPages.length; i++) {
 document.querySelectorAll(".content-popup .action-container").forEach((item, i) => {
 
   item.addEventListener("click", (e) => {
-    let popupID = document.querySelector(".content-popup .action-container").getAttribute("popupID");
+    // Searching for the parent that has the content-popup class
+    e = e.target;
+    while (!e.classList.contains("content-popup"))
+      e = e.parentElement
+
+    // From there extract the popupID to show
+    let popupID = e.getAttribute("popupID");
+
     document.querySelector(".popup#popupID"+popupID).style.display = "block";
   });
 });
