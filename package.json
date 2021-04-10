@@ -1,0 +1,22 @@
+{
+  "name": "isiau-how-to-survive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "snowpack build",
+    "dev": "snowpack dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "scrollbooster": "^3.0.2"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@snowpack/plugin-sass": "^1.4.0",
+    "snowpack": "^3.2.2"
+  }
+}

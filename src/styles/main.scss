@@ -1,0 +1,225 @@
+// @Author: francesco
+// @Date:   2021-04-08T22:22:15+02:00
+// @Last modified by:   francesco
+// @Last modified time: 2021-04-10T00:51:21+02:00
+
+@import url("https://use.typekit.net/vwi0ykr.css");
+
+html {
+  font-family: halyard-display, sans-serif;
+  font-feature-settings: 'ss06' on, 'ss11' on, 'ss14' on, 'ss15' on, 'ss18' on;
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  left: 0;
+  top: 0;
+  margin: 0;
+
+  .App-main {
+    overflow-y: scroll;
+    height: 100vh;
+    height: -webkit-fill-available;
+
+    display: flex;
+    flex-direction: column;
+
+    .vertical-view {
+      flex: 0 0 100%;
+      height: 100%;
+      min-height: -webkit-fill-available;
+    }
+
+    #landing-view {
+      position: relative;
+
+      background-color: black;
+      color: white;
+
+      .action-button-area {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 250px;
+
+        display: flex;
+
+        .action-button {
+          margin: auto auto 0 auto;
+
+          cursor: pointer;
+
+          img {
+            transform: rotate(90deg);
+            margin-bottom: 42px;
+          }
+        }
+      }
+    }
+
+    #site-content {
+
+      .caret {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        height: -webkit-fill-available;
+        max-height: 100vh;
+
+        .caret-page {
+          height: 100%;
+          max-height: 100%;
+          overflow-y: auto;
+
+          .caret-page-content {
+
+            padding-bottom: 2em;
+
+            & > *:not(.img-container, .card) {
+              margin-left: 15px;
+              margin-right: 15px;
+            }
+
+            h2 {
+              margin-top: 1rem;
+              margin-bottom: 2.5rem;
+
+              font-size: 42px;
+              line-height: 38px;
+              font-weight: 300;
+
+            }
+            h3 {
+              margin-top: 0;
+              margin-bottom: 0;
+
+              font-size: 32px;
+              line-height: 32px;
+              font-weight: 300;
+
+            }
+
+            .img-container {
+              width: 100%;
+
+              img {
+                max-width: 100%;
+              }
+
+              .img-caption {
+                margin: 0 2em;
+                color: #666;
+              }
+            }
+            .content-popup {
+
+              .action-container {
+                position: relative;
+                cursor: pointer;
+              }
+              .action-container::after {
+                content: '';
+                position: absolute;
+                bottom: 21px;
+                right: 21px;
+                width: 42px;
+                height: 42px;
+
+                background-image: url("./../res/plus.svg");
+              }
+            }
+
+            .card {
+              padding-top: 1em;
+              padding-bottom: 1em;
+
+              &:not(.content-popup) > *, &.content-popup .action-container > * {
+                padding-right: 1rem;
+                padding-left: 1rem;
+              }
+              &.content-popup .action-container > * {
+                padding-right: calc(1rem + 42px + 21px);
+              }
+            }
+          }
+        }
+      }
+
+      .popup {
+        display: none;
+        z-index: 12000;
+
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        overflow-y: auto;
+
+        background-color: rgba(0,0,0,0.7);
+
+        .popup-content {
+          padding: 3em 1em;
+
+          font-size: 32px;
+          line-height: 32px;
+          color: white;
+          font-weight: 300;
+
+          .close-me {
+            position: fixed;
+            top: 21px;
+            right: 21px;
+            width: 42px;
+            height: 42px;
+
+            cursor: pointer;
+
+            background-image: url("./../res/plus.svg");
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .vertical-simulate-max-width {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+  .hidden {
+    display: none;
+  }
+  .text-caps {
+    text-transform: uppercase;
+  }
+}
+
+h1 {
+  margin: 15px 25px;
+  font: normal normal 800 95px/80px halyard-display;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hide-scroll-bars, .caret-page, .popup {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@import 'slide_custom.scss';
+@import '/styles/slide.css';
