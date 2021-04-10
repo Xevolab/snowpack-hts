@@ -2,10 +2,17 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-10T18:00:35+02:00
+ * @Last edit at: 2021-04-10T22:44:35+02:00
  */
 
-console.log("Hello from Xevolab");
+console.log(`  @@@@   @@@@
+   @@@@ @@@@
+    @@@@@@@
+      @@@
+    @@@@@@@
+   @@@@ @@@@
+  @@@@   @@@@
+`);
 
 import smoothscroll from 'smoothscroll-polyfill';
 smoothscroll.polyfill();
@@ -63,7 +70,7 @@ const bakeThemCookies = () => {
 var glider = new Glide('.glide', {
   type: "carousel",
 
-  touchAngle: 15,
+  touchAngle: 35,
 
   focusAt: "center",
   gap: 0,
@@ -79,7 +86,6 @@ glider.on(["mount.after", "resize"], () => {
 
 const bindSyncScroll = () => {
   document.querySelectorAll(".caret-page").forEach((item, i) => {
-    console.log("updating caret-page");
 
     item.removeEventListener("scroll", syncScroll);
     item.addEventListener("scroll", syncScroll);

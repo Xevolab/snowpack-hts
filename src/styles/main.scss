@@ -1,13 +1,14 @@
 // @Author: francesco
 // @Date:   2021-04-08T22:22:15+02:00
 // @Last modified by:   francesco
-// @Last modified time: 2021-04-10T17:57:07+02:00
+// @Last modified time: 2021-04-10T22:34:48+02:00
 
 @import url("https://use.typekit.net/vwi0ykr.css");
 
 html {
   font-family: halyard-display, sans-serif;
   font-feature-settings: 'ss06' on, 'ss11' on, 'ss14' on, 'ss15' on, 'ss18' on;
+  font-weight: 200;
   scroll-behavior: smooth;
 }
 * {
@@ -42,9 +43,17 @@ body {
       background-color: black;
       color: white;
 
+      .landing-square-view {
+        max-width: min(100vh, 100vw);
+        margin: 0 auto;
+      }
+
       h1 {
         margin: 15px 25px;
-        font: normal normal 800 95px/80px halyard-display;
+
+        font-weight: 800;
+        font-size: min(17.5vh, 27.5vw);
+        line-height: min(16.5vh, 25.5vw);
 
         -webkit-touch-callout: none;
         -webkit-user-select: none;
@@ -116,7 +125,7 @@ body {
               margin-bottom: 2.5rem;
 
               font-size: 42px;
-              line-height: 38px;
+              line-height: 45px;
               font-weight: 300;
 
             }
@@ -128,6 +137,10 @@ body {
               line-height: 32px;
               font-weight: 300;
 
+            }
+
+            p {
+              font-size: 20px;
             }
 
             .content-popup {
@@ -252,10 +265,6 @@ body {
     }
   }
 
-  .vertical-simulate-max-width {
-    max-width: 375px;
-    margin: 0 auto;
-  }
   .hidden {
     display: none;
   }
