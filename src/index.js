@@ -2,7 +2,7 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-11T14:58:02+02:00
+ * @Last edit at: 2021-04-11T15:09:41+02:00
  */
 
 console.log(`  @@@@   @@@@
@@ -48,12 +48,11 @@ document.querySelector(".action-button-area").addEventListener("click", () => {
 });
 
 window.addEventListener('resize', () => {
-  // We execute the same script as before
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  requestAnimationFrame(() => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+  })
 });
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
 
 /*
   glide.js for carousel management
