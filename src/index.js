@@ -2,7 +2,7 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-11T15:09:41+02:00
+ * @Last edit at: 2021-04-11T16:05:46+02:00
  */
 
 console.log(`  @@@@   @@@@
@@ -27,7 +27,6 @@ const hideLandingView = () => {
   document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
 }
 document.getElementById("App-main").addEventListener("scroll", e => {
-  e.preventDefault();
   hideLandingView()
 
   if (e.target.scrollTop >= window.innerHeight) {
