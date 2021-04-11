@@ -2,7 +2,7 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-10T22:44:35+02:00
+ * @Last edit at: 2021-04-11T14:13:18+02:00
  */
 
 console.log(`  @@@@   @@@@
@@ -21,22 +21,31 @@ smoothscroll.polyfill();
   Dealing with landing view
  */
 const hideLandingView = () => {
-  document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
-  setTimeout(() => {
-    document.getElementById("landing-view").classList.add("hidden");
-  }, 1000)
-}
-document.getElementById("landing-view").addEventListener("wheel", e => {
-  e.preventDefault();
-  if (e.deltaY <= 0) return
+  if (document.getElementById("App-main").classList.contains("one-off-scrolling")) return
 
+  document.getElementById("App-main").classList.add("one-off-scrolling");
+  document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
+}
+document.getElementById("App-main").addEventListener("scroll", e => {
+  e.preventDefault();
   hideLandingView()
+
+  if (e.target.scrollTop == window.innerHeight) {
+    document.getElementById("landing-view").classList.add("hidden");
+    window.scrollTo(0, 0)
+  }
+
 });
 document.getElementById("landing-view").addEventListener("touchmove", e => {
   e.preventDefault();
-  hideLandingView()
+  document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
+
+}, {passing: false});
+document.querySelector(".action-button-area").addEventListener("click", () => {
+
+  document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
+
 });
-document.querySelector(".action-button-area").addEventListener("click", hideLandingView);
 
 /*
   glide.js for carousel management
@@ -92,11 +101,11 @@ const bindSyncScroll = () => {
   });
 }
 const syncScroll = (e) => {
-  setTimeout(() => {
+  window.requestAnimationFrame(() => {
     document.querySelectorAll(".caret-page:not(.glide__slide--active)#"+e.target.id).forEach((item, i) => {
       item.scrollTop = e.target.scrollTop;
     });
-  }, 0);
+  });
 }
 glider.on("update", () => {
 
