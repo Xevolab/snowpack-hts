@@ -1,7 +1,7 @@
 // @Author: francesco
 // @Date:   2021-04-08T22:22:15+02:00
 // @Last modified by:   francesco
-// @Last modified time: 2021-04-11T14:19:52+02:00
+// @Last modified time: 2021-04-11T14:58:37+02:00
 
 @import url("https://use.typekit.net/vwi0ykr.css");
 
@@ -24,6 +24,7 @@ body {
   .App-main {
     height: 100vh;
     height: -webkit-fill-available;
+    height: calc(var(--vh, 1vh) * 100);
 
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -34,7 +35,8 @@ body {
     .vertical-view {
       flex: 0 0 100%;
       height: 100%;
-      min-height: -webkit-fill-available;
+      height: -webkit-fill-available;
+      height: calc(var(--vh, 1vh) * 100);
     }
 
     #landing-view {
@@ -117,13 +119,13 @@ body {
       .caret {
         position: relative;
         width: 100%;
-        height: 100%;
-        height: -webkit-fill-available;
-        max-height: 100vh;
+
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
 
         .caret-page {
-          height: 100%;
-          max-height: 100%;
+          height: 100vh;
+          height: calc(var(--vh, 1vh) * 100);
           overflow-y: auto;
 
           -webkit-touch-callout: none;
@@ -246,7 +248,8 @@ body {
 
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
         top: 0;
         left: 0;
 

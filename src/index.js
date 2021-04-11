@@ -2,7 +2,7 @@
  * @Author: francesco
  * @Date:   2021-04-08T22:41:21+02:00
  * @Last edit by: francesco
- * @Last edit at: 2021-04-11T14:13:18+02:00
+ * @Last edit at: 2021-04-11T14:58:02+02:00
  */
 
 console.log(`  @@@@   @@@@
@@ -30,7 +30,7 @@ document.getElementById("App-main").addEventListener("scroll", e => {
   e.preventDefault();
   hideLandingView()
 
-  if (e.target.scrollTop == window.innerHeight) {
+  if (e.target.scrollTop >= window.innerHeight) {
     document.getElementById("landing-view").classList.add("hidden");
     window.scrollTo(0, 0)
   }
@@ -46,6 +46,14 @@ document.querySelector(".action-button-area").addEventListener("click", () => {
   document.getElementById("site-content").scrollIntoView({behavior: "smooth"});
 
 });
+
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 /*
   glide.js for carousel management
